@@ -18,7 +18,7 @@ export class NewshambaPage {
   newShamba = {
     location: '',
     size: '',
-    pricing: ''
+    price: ''
   };
   shambas: FirebaseListObservable<any[]>;
   
