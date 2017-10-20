@@ -5,7 +5,7 @@ import {
   FirebaseListObservable
 } from "angularfire2/database";
 import firebase from "firebase";
-
+import { NewshambaPage } from "../newshamba/newshamba";
 /**
  * Generated class for the ShambalistPage page.
  *
@@ -19,7 +19,7 @@ import firebase from "firebase";
 })
 export class ShambalistPage {
   shambas: FirebaseListObservable<any[]>;
-
+  
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -30,6 +30,9 @@ export class ShambalistPage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad ShambalistPage");
+  }
+  AddShamba() {
+    this.navCtrl.push(NewshambaPage)
   }
 
 }

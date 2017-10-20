@@ -18,7 +18,8 @@ export class NewshambaPage {
   newShamba = {
     location: '',
     size: '',
-    price: ''
+    price: '',
+    user: ''
   };
   shambas: FirebaseListObservable<any[]>;
   
@@ -29,7 +30,6 @@ export class NewshambaPage {
               ) {
                 this.shambas = db.list('/shambas');
                 console.log(this.shambas)
-                
   }
 
   ionViewDidLoad() {
@@ -40,12 +40,22 @@ export class NewshambaPage {
     let loader = this.loadingCtrl.create({
       content: "Posting Shamba ... "
     });
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        console.log("User posting:", user)
+      this.newshamba.user = user;
+      } else {
+        // No user is signed in.
+      }
+    });
     loader.present();
    this.shambas.push(this.newShamba);
    this.newShamba = {
      location: '',
      size: '',
-     price: ''
+     price: '',
+     user: ''
    }
    loader.dismiss();
    this.navCtrl.push(ShambalistPage);

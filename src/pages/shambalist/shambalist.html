@@ -8,43 +8,40 @@
 
 
 <ion-content>
-<ion-card *ngFor="let shamba of shambas | async">
-  <img src="img/nin-live.png"/>
-  <ion-card-content>
-    <ion-card-title>
-{{shamba.location}}
-      </ion-card-title>
-    <!-- <p>
+  <!-- <ion-card *ngIf="shambas.length">
+    <ion-card-content>
+      0
+    </ion-card-content>
+  </ion-card> -->
+  <ion-card *ngFor="let shamba of shambas | async">
 
-      The most popular industrial group ever, and largely
-      responsible for bringing the music to a mass audience.
+    <img src="img/advance-card-map-madison.png">
+    <!-- <ion-fab right top>
+        <button ion-fab>
+          <ion-icon name="pin"></ion-icon>
+        </button>
+      </ion-fab> -->
 
-    </p> -->
-  </ion-card-content>
-  <ion-row>
-      <ion-col>
-        <button ion-button icon-left clear small>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>
-            <b>
-              Size: 
-            </b>
-            {{shamba.size}} Acres</div>
-        </button>
-      </ion-col>
-    </ion-row>
-  <ion-row>
-      <ion-col>
-        <button ion-button icon-left clear small>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>
-            <b>
-              Cost:
-            </b>
-            {{shamba.pricing}} Per Month</div>
-        </button>
-      </ion-col>
-    </ion-row>
-</ion-card>
+    <ion-item>
+      <ion-icon name="navigate" item-left large></ion-icon>
+      <h2>Location:</h2>
+      <p>{{shamba.location}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="map" item-left large></ion-icon>
+      <h2>Size:</h2>
+      <p>{{shamba.size}} / Acres</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="cash" item-left large></ion-icon>
+      <h2>Charges:</h2>
+      <p>{{shamba.pricing}} / Per Month</p>
+    </ion-item>
+
+  </ion-card>
+
+
 
 </ion-content>
