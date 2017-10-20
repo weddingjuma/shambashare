@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import firebase from "firebase";
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
@@ -24,7 +24,8 @@ export class NewshambaPage {
   
   constructor( public navCtrl: NavController,
                public navParams: NavParams,
-               public db: AngularFireDatabase
+               public db: AngularFireDatabase,
+               public loadingCtrl: LoadingController
               ) {
                 this.shambas = db.list('/shambas');
                 
@@ -35,11 +36,16 @@ export class NewshambaPage {
   }
 
   addShamba(newShamba) {
+    let loader = this.loadingCtrl.create({
+      content: "Posting Shamba ... "
+    });
+    loader.present();
    this.shambas.push(this.newShamba);
    this.newShamba = {
      location: '',
      size: '',
      pricing: ''
    }
+   loader.dismiss();
   }
 }
