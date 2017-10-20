@@ -1,30 +1,34 @@
-import { Component, ViewChild } from '@angular/core';
-import {Platform, Nav, Config} from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
-import { NavController, ModalController, LoadingController, 
-AlertController, ToastController} from 'ionic-angular';
+import { Component, ViewChild } from "@angular/core";
+import { Platform, Nav, Config } from "ionic-angular";
+import { StatusBar, Splashscreen } from "ionic-native";
+import {
+  NavController,
+  ModalController,
+  LoadingController,
+  AlertController,
+  ToastController
+} from "ionic-angular";
 
+import { Settings } from "../providers/providers";
 
-import { Settings } from '../providers/providers';
-
-import { FirstRunPage } from '../pages/pages';
-import { CardsPage } from '../pages/cards/cards';
-import { ContentPage } from '../pages/content/content';
-import { LoginPage } from '../pages/login/login';
-import { MapPage } from '../pages/map/map';
-import { SignupPage } from '../pages/signup/signup';
-import { TabsPage } from '../pages/tabs/tabs';
-import { TutorialPage } from '../pages/tutorial/tutorial';
-import { WelcomePage } from '../pages/welcome/welcome';
-import { ListMasterPage } from '../pages/list-master/list-master';
-import { MenuPage } from '../pages/menu/menu';
-import { HomePage } from '../pages/home/home';
-import { SettingsPage } from '../pages/settings/settings';
-import { SearchPage } from '../pages/search/search';
-import { PostsService } from '../providers/posts-service/posts-service';
-import { TranslateService } from 'ng2-translate/ng2-translate';
-import * as firebase from 'firebase';
-
+import { FirstRunPage } from "../pages/pages";
+import { CardsPage } from "../pages/cards/cards";
+import { ContentPage } from "../pages/content/content";
+import { LoginPage } from "../pages/login/login";
+import { MapPage } from "../pages/map/map";
+import { SignupPage } from "../pages/signup/signup";
+import { TabsPage } from "../pages/tabs/tabs";
+import { TutorialPage } from "../pages/tutorial/tutorial";
+import { WelcomePage } from "../pages/welcome/welcome";
+import { ListMasterPage } from "../pages/list-master/list-master";
+import { MenuPage } from "../pages/menu/menu";
+import { HomePage } from "../pages/home/home";
+import { SettingsPage } from "../pages/settings/settings";
+import { SearchPage } from "../pages/search/search";
+import { PostsService } from "../providers/posts-service/posts-service";
+import { TranslateService } from "ng2-translate/ng2-translate";
+import * as firebase from "firebase";
+import { NewshambaPage } from "../pages/newshamba/newshamba";
 @Component({
   template: `<ion-menu [content]="content">
     <ion-header>
@@ -45,53 +49,59 @@ import * as firebase from 'firebase';
   <ion-nav #content [root]="rootPage"></ion-nav>`,
   providers: [PostsService]
 })
-
-
-
-
 export class MyApp {
- //rootPage = FirstRunPage;
-rootPage : any;
+  //rootPage = FirstRunPage;
+  rootPage: any;
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Tutorial', component: TutorialPage },
-    { title: 'Welcome', component: WelcomePage },
-    { title: 'Tabs', component: TabsPage },
-    { title: 'Home', component: HomePage },
-    { title: 'Cards', component: CardsPage },
-    { title: 'Content', component: ContentPage },
-    { title: 'Login', component: LoginPage },
-    { title: 'Signup', component: SignupPage },
-    { title: 'Map', component: MapPage },
-    { title: 'Master Detail', component: ListMasterPage },
-    { title: 'Menu', component: MenuPage },
-    { title: 'Settings', component: SettingsPage },
-    { title: 'Search', component: SearchPage }
-  ]
- constructor(translate: TranslateService, platform: Platform, settings: Settings, config: Config) {
+    { title: "Tutorial", component: TutorialPage },
+    { title: "Welcome", component: WelcomePage },
+    { title: "Tabs", component: TabsPage },
+    { title: "Home", component: HomePage },
+    { title: "Cards", component: CardsPage },
+    { title: "Content", component: ContentPage },
+    { title: "Login", component: LoginPage },
+    { title: "Signup", component: SignupPage },
+    { title: "Map", component: MapPage },
+    { title: "Master Detail", component: ListMasterPage },
+    { title: "Menu", component: MenuPage },
+    { title: "Settings", component: SettingsPage },
+    { title: "Search", component: SearchPage }
+  ];
+  constructor(
+    translate: TranslateService,
+    platform: Platform,
+    settings: Settings,
+    config: Config
+  ) {
     // Set the default language for translation strings, and the current language.
-   
-   
-  	//check logged in status
+
+    //check logged in status
     var that = this;
 
-  	firebase.auth().onAuthStateChanged((user) => {
-		if(user){
-			that.rootPage = TabsPage;
-		}else {
-			//this.rootPage = LoginPage;
-			that.rootPage = FirstRunPage;
-		}
+    // firebase.auth().onAuthStateChanged((user) => {
+    //   if(user){
+    //     that.rootPage = TabsPage;
+    //   }else {
+    //     //this.rootPage = LoginPage;
+    //     that.rootPage = FirstRunPage;
+    //   }
 
-	});
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        that.rootPage = NewshambaPage;
+      } else {
+        //this.rootPage = LoginPage;
+        that.rootPage = FirstRunPage;
+      }
+    });
 
-   
-    translate.setDefaultLang('en');
-    translate.use('en')
+    translate.setDefaultLang("en");
+    translate.use("en");
 
-    translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
-      config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+    translate.get(["BACK_BUTTON_TEXT"]).subscribe(values => {
+      config.set("ios", "backButtonText", values.BACK_BUTTON_TEXT);
     });
 
     platform.ready().then(() => {

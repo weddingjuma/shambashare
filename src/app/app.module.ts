@@ -26,7 +26,9 @@ import { ContactPage } from '../pages/contact/contact';
 import { UserViewPage } from '../pages/user-view/user-view';
 import { UserEditPage } from '../pages/user-edit/user-edit';
 import { LocationTracker } from '../providers/location-tracker'; 
-
+import { NewshambaPageModule } from '../pages/newshamba/newshamba.module';
+import { ShambalistPageModule } from '../pages/shambalist/shambalist.module';
+import { ShambadetailsPageModule } from '../pages/shambadetails/shambadetails.module';
 
 import { User } from '../providers/user';
 import { Api } from '../providers/api';
@@ -34,6 +36,9 @@ import { Settings } from '../providers/settings';
 import { Items } from '../mocks/providers/items';
 import * as firebase from 'firebase';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
+import { AngularFireDatabase, FirebaseListObservable, AngularFireDatabaseModule} from 'angularfire2/database';
+import { AngularFireModule } from "angularfire2";
+
 
 
  // Initialize Firebase
@@ -124,7 +129,12 @@ export function providers() {
   imports: [
     IonicModule.forRoot(MyApp),
     BrowserModule ,
+    NewshambaPageModule,
+    ShambalistPageModule,
+    ShambadetailsPageModule,
     IonicStorageModule.forRoot(),
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(config),
     TranslateModule.forRoot({
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),
