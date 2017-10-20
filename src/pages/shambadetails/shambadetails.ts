@@ -13,10 +13,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'shambadetails.html',
 })
 export class ShambadetailsPage {
-  shambadetails: any;
+  shamba: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  this.shambadetails = navParams.data.shamba;
-  console.log(this.shambadetails);
+  this.shamba = navParams.data.shamba;
+  console.log(this.shamba);
   }
 
   ionViewDidLoad() {
