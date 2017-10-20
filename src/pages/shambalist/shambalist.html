@@ -1,18 +1,50 @@
-<!--
-  Generated template for the ShambalistPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>shambalist</ion-title>
+    <ion-title>Shambas</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <!-- <ion-card *ngIf="shambas.length">
+    <ion-card-content>
+      0
+    </ion-card-content>
+  </ion-card> -->
+  <ion-fab top right edge>
+      <button ion-fab mini (click)="AddShamba()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+  <ion-card *ngFor="let shamba of shambas | async" (click)="ShambaDetails($event, shamba)">
+
+    <img src="img/advance-card-map-madison.png">
+    <!-- <ion-fab right top>
+        <button ion-fab>
+          <ion-icon name="pin"></ion-icon>
+        </button>
+      </ion-fab> -->
+
+    <ion-item>
+      <ion-icon name="navigate" item-left large></ion-icon>
+      <h2>Location:</h2>
+      <p>{{shamba.location}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="map" item-left large></ion-icon>
+      <h2>Size:</h2>
+      <p>{{shamba.size}} / Acres</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="cash" item-left large></ion-icon>
+      <h2>Charges:</h2>
+      <p>{{shamba.pricing}} / Per Month</p>
+    </ion-item>
+
+  </ion-card>
+
+
 
 </ion-content>
