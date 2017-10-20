@@ -26,7 +26,9 @@ import { ContactPage } from '../pages/contact/contact';
 import { UserViewPage } from '../pages/user-view/user-view';
 import { UserEditPage } from '../pages/user-edit/user-edit';
 import { LocationTracker } from '../providers/location-tracker'; 
-
+import { NewshambaPageModule } from '../pages/newshamba/newshamba.module';
+import { ShambalistPageModule } from '../pages/shambalist/shambalist.module';
+import { ShambadetailsPageModule } from '../pages/shambadetails/shambadetails.module';
 
 import { User } from '../providers/user';
 import { Api } from '../providers/api';
@@ -124,6 +126,9 @@ export function providers() {
   imports: [
     IonicModule.forRoot(MyApp),
     BrowserModule ,
+    NewshambaPageModule,
+    ShambalistPageModule,
+    ShambadetailsPageModule,
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
       provide: TranslateLoader,
