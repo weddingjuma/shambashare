@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from "firebase";
+import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 /**
  * Generated class for the NewshambaPage page.
@@ -14,18 +15,31 @@ import firebase from "firebase";
   templateUrl: 'newshamba.html',
 })
 export class NewshambaPage {
-  shamba: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  newShamba = {
+    location: '',
+    size: '',
+    pricing: ''
+  };
+  shambas: FirebaseListObservable<any[]>;
+  
+  constructor( public navCtrl: NavController,
+               public navParams: NavParams,
+               public db: AngularFireDatabase
+              ) {
+                this.shambas = db.list('/shambas');
+                
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewshambaPage');
   }
 
-  addShamba() {
-    var shambaRef = firebase
-      .database()
-      .ref("shambas")
-    shambaRef.child("Rara").set(this.shamba);
+  addShamba(newShamba) {
+   this.shambas.push(this.newShamba);
+   this.newShamba = {
+     location: '',
+     size: '',
+     pricing: ''
+   }
   }
 }

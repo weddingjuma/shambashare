@@ -36,6 +36,9 @@ import { Settings } from '../providers/settings';
 import { Items } from '../mocks/providers/items';
 import * as firebase from 'firebase';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
+import { AngularFireDatabase, FirebaseListObservable, AngularFireDatabaseModule} from 'angularfire2/database';
+import { AngularFireModule } from "angularfire2";
+
 
 
  // Initialize Firebase
@@ -130,6 +133,8 @@ export function providers() {
     ShambalistPageModule,
     ShambadetailsPageModule,
     IonicStorageModule.forRoot(),
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(config),
     TranslateModule.forRoot({
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),

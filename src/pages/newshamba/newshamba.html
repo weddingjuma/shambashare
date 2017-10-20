@@ -14,11 +14,11 @@
     <ion-label color="primary" stacked>
       Shamba Location/Town/County
     </ion-label>
-    <ion-input type="text" placeholder="location" [(ngModel)]="shamba.location"></ion-input>
+    <ion-input type="text" name="location" placeholder="location" [(ngModel)]="newShamba.location"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Size(In Acres)</ion-label>
-    <ion-select [(ngModel)]="shamba.size" interface="popover">
+    <ion-select [(ngModel)]="newShamba.size" interface="popover" name="size">
       <ion-option value="1/8">1/8</ion-option>
       <ion-option value="1/4">1/4</ion-option>
       <ion-option value="1/2">1/2</ion-option>      
@@ -28,15 +28,15 @@
       <ion-option value="3">3</ion-option>
       <ion-option value="4">4</ion-option>      
       <ion-option value="Other">Other</ion-option>
-    <ion-input type="text" placeholder="Size" *ngIf="size == 'Other'" [(ngModel)]="shamba.location"></ion-input>    
+    <ion-input type="text" placeholder="Size" *ngIf="size == 'Other'" [(ngModel)]="newShamba.size" name="size"></ion-input>    
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label color="primary" stacked>Pricing (Monthly)</ion-label>
-    <ion-input type="number" placeholder="Amount Per Month" [(ngModel)]="shamba.pricing"></ion-input>
+    <ion-input type="number" placeholder="Amount Per Month" [(ngModel)]="newShamba.pricing" name="pricing"></ion-input>
   </ion-item>
 <div padding>
-  <button ion-button block (click)="addShamba()">
+  <button ion-button block (click)="addShamba(newShamba)">
     Submit Shamba
   </button>
 </div>
