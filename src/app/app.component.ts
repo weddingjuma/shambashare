@@ -29,6 +29,7 @@ import { PostsService } from "../providers/posts-service/posts-service";
 import { TranslateService } from "ng2-translate/ng2-translate";
 import * as firebase from "firebase";
 import { NewshambaPage } from "../pages/newshamba/newshamba";
+import { ShambalistPage } from '../pages/shambalist/shambalist';
 @Component({
   template: `<ion-menu [content]="content">
     <ion-header>
@@ -90,7 +91,7 @@ export class MyApp {
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        that.rootPage = NewshambaPage;
+        that.rootPage = ShambalistPage;
       } else {
         //this.rootPage = LoginPage;
         that.rootPage = FirstRunPage;

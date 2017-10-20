@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import firebase from "firebase";
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-
+import {ShambalistPage } from '../shambalist/shambalist';
 /**
  * Generated class for the NewshambaPage page.
  *
@@ -28,6 +28,7 @@ export class NewshambaPage {
                public loadingCtrl: LoadingController
               ) {
                 this.shambas = db.list('/shambas');
+                console.log(this.shambas)
                 
   }
 
@@ -44,8 +45,9 @@ export class NewshambaPage {
    this.newShamba = {
      location: '',
      size: '',
-     pricing: ''
+     price: ''
    }
    loader.dismiss();
+   this.navCtrl.push(ShambalistPage);
   }
 }

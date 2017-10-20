@@ -30,13 +30,13 @@
       <ion-option value="Other">Other</ion-option>
     </ion-select>
   </ion-item>
-  <ion-item *ngIf="newShamba.size == 'Other'">
+  <!-- <ion-item *ngIf="newShamba.size == 'Other'">
     <ion-label color="primary" stacked>Size (In Acres)</ion-label>
     <ion-input type="number" placeholder="Size In Acres" [(ngModel)]="newShamba.size" name="newShamba.size"></ion-input>
-  </ion-item>
+  </ion-item> -->
   <ion-item>
     <ion-label color="primary" stacked>Pricing (Monthly)</ion-label>
-    <ion-input type="number" placeholder="Amount Per Month" [(ngModel)]="newShamba.pricing" name="pricing"></ion-input>
+    <ion-input type="number" placeholder="Amount Per Month" [(ngModel)]="newShamba.price" name="pricing"></ion-input>
   </ion-item>
 <div padding>
   <button ion-button block (click)="addShamba(newShamba)">
