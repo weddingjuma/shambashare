@@ -1,8 +1,8 @@
 {
-    "name": "ionic-hello-world",
-    "version": "0.0.0",
-    "author": "Ionic Framework",
-    "homepage": "http://ionicframework.com/",
+    "name": "shambashare",
+    "version": "0.0.1",
+    "author": "Denzel Wamburu",
+    "homepage": "http://shambashare.com/",
     "private": true,
     "scripts": {
         "clean": "ionic-app-scripts clean",

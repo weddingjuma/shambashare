@@ -38,14 +38,14 @@ import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-tra
 
  // Initialize Firebase
   export const config = {
-    apiKey: "AIzaSyAkGwyzf7CJ-RF2hFyMghHTsgia9SGimHk",
-    authDomain: "quickhire-b728a.firebaseapp.com",
-    databaseURL: "https://quickhire-b728a.firebaseio.com",
-    projectId: "quickhire-b728a",
-    storageBucket: "quickhire-b728a.appspot.com",
-    messagingSenderId: "1066946591659"
+    apiKey: "AIzaSyCINkqurqtQrylj101ZMwA_ORJRMCX57uM",
+    authDomain: "shambashare.firebaseapp.com",
+    databaseURL: "https://shambashare.firebaseio.com",
+    projectId: "shambashare",
+    storageBucket: "shambashare.appspot.com",
+    messagingSenderId: "1008163204226"
   };
-    firebase.initializeApp(config);
+  firebase.initializeApp(config);
 
 
 // The translate loader needs to know where to load i18n files
