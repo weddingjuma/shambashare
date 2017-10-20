@@ -6,6 +6,7 @@ import {
 } from "angularfire2/database";
 import firebase from "firebase";
 import { NewshambaPage } from "../newshamba/newshamba";
+import { ShambadetailsPage } from '../shambadetails/shambadetails';
 /**
  * Generated class for the ShambalistPage page.
  *
@@ -33,6 +34,11 @@ export class ShambalistPage {
   }
   AddShamba() {
     this.navCtrl.push(NewshambaPage)
+  }
+  ShambaDetails(event, shamba) {
+    this.navCtrl.push(ShambadetailsPage, {
+      shamba: shamba
+    });
   }
 
 }

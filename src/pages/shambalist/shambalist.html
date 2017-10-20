@@ -16,7 +16,7 @@
   <ion-fab top right edge>
       <button ion-fab mini (click)="AddShamba()"><ion-icon name="add"></ion-icon></button>
     </ion-fab>
-  <ion-card *ngFor="let shamba of shambas | async">
+  <ion-card *ngFor="let shamba of shambas | async" (click)="ShambaDetails($event, shamba)">
 
     <img src="img/advance-card-map-madison.png">
     <!-- <ion-fab right top>
