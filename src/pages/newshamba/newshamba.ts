@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import firebase from "firebase";
 
 /**
  * Generated class for the NewshambaPage page.
@@ -13,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'newshamba.html',
 })
 export class NewshambaPage {
-
+  shamba: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -21,4 +22,10 @@ export class NewshambaPage {
     console.log('ionViewDidLoad NewshambaPage');
   }
 
+  addShamba() {
+    var shambaRef = firebase
+      .database()
+      .ref("shambas")
+    shambaRef.child("Rara").set(this.shamba);
+  }
 }

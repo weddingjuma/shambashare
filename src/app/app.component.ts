@@ -24,7 +24,7 @@ import { SearchPage } from '../pages/search/search';
 import { PostsService } from '../providers/posts-service/posts-service';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import * as firebase from 'firebase';
-
+import { NewshambaPage } from '../pages/newshamba/newshamba';
 @Component({
   template: `<ion-menu [content]="content">
     <ion-header>
@@ -51,7 +51,7 @@ import * as firebase from 'firebase';
 
 export class MyApp {
  //rootPage = FirstRunPage;
-rootPage : any;
+rootPage : NewshambaPage;
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
