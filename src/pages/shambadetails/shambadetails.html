@@ -7,12 +7,33 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>shambadetails</ion-title>
+    <ion-title>Shamba Details</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+    <ion-card>
+        
+            <img src="img/advance-card-map-madison.png">
+            <ion-item>
+              <ion-icon name="navigate" item-left large></ion-icon>
+              <h2>Location:</h2>
+              <p>{{shamba.location}}</p>
+            </ion-item>
+        
+            <ion-item>
+              <ion-icon name="map" item-left large></ion-icon>
+              <h2>Size:</h2>
+              <p>{{shamba.size}} / Acres</p>
+            </ion-item>
+        
+            <ion-item>
+              <ion-icon name="cash" item-left large></ion-icon>
+              <h2>Charges:</h2>
+              <p>{{shamba.pricing}} / Per Month</p>
+            </ion-item>
+        
+          </ion-card>
 </ion-content>

@@ -1,6 +1,12 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import {
+  AngularFireDatabase,
+  FirebaseListObservable
+} from "angularfire2/database";
+import firebase from "firebase";
+import { NewshambaPage } from "../newshamba/newshamba";
+import { ShambadetailsPage } from '../shambadetails/shambadetails';
 /**
  * Generated class for the ShambalistPage page.
  *
@@ -9,16 +15,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  */
 @IonicPage()
 @Component({
-  selector: 'page-shambalist',
-  templateUrl: 'shambalist.html',
+  selector: "page-shambalist",
+  templateUrl: "shambalist.html"
 })
 export class ShambalistPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  shambas: FirebaseListObservable<any[]>;
+  
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public db: AngularFireDatabase
+  ) {
+    this.shambas = db.list("/shambas");
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShambalistPage');
+    console.log("ionViewDidLoad ShambalistPage");
+  }
+  AddShamba() {
+    this.navCtrl.push(NewshambaPage)
+  }
+  ShambaDetails(event, shamba) {
+    this.navCtrl.push(ShambadetailsPage, {
+      shamba: shamba
+    });
   }
 
 }
