@@ -1,5 +1,7 @@
 # Ionic 3 App with Firebase as Backend - user authentication, geolocation and geofire are included
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/denzelwamburu/shambashare.svg)](https://greenkeeper.io/)
+
 ## Installation
 * Clone this repository
 * Navigate into the root folder and run `npm install`. 
